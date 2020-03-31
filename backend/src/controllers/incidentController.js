@@ -6,15 +6,17 @@ module.exports = {
         
         const [count] = await connection('incidents').count();
 
-        
-        const incidents = await connection('incidents').join('ongs', 'ong_id', '=', 'incidents.ong_id')
-                                .limit(5).offset((page - 1)*5)
-                                .select(['incidents.*', 
-                                        'ongs.name', 
-                                        'ongs.email',
-                                        'ongs.whatsapp',
-                                        'ongs.city',
-                                        'ongs.uf']);
+        const incidents = await connection('incidents').join('ongs', 'ongs.id', '=', 'incidents.ong_id')
+                                .limit(5)
+                                .offset((page - 1) * 5)
+                                .select([
+                                    'incidents.*', 
+                                    'ongs.name', 
+                                    'ongs.email',
+                                    'ongs.whatsapp',
+                                    'ongs.city',
+                                    'ongs.uf'
+                                ]);
         //Ex usando paginação: http://localhost:3333/incidents?page=3
 
         response.header('X-Total-Count', count['count(*)']);
