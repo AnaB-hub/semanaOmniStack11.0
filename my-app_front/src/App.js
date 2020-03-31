@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import './global.css';
+
+import Routes from './routes';
 
 function App() {
+
+  //Não é possível alterar o valor do estado de forma direta. Ex: counter++
+  // const [counter, setCounter] = useState(0);
+
+  // //useState retorna um array [valor, funcaoDeAtualizacao]
+
+  // function increment() {
+  //   setCounter(counter + 1);
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Header title="Semana OmniStack"/>
+    /* <Header>Contador: { counter }</Header>
+    <button onClick={increment}>Incrementar</button> */
+    
+    <Routes/>
   );
 }
 
